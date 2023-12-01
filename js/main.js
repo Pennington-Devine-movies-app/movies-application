@@ -77,10 +77,11 @@ const patchMovie = async (id) => {
 
 //MAIN
 (async () => {
-const movies = getMovies()
-    console.log(movies)
-
-
-
-
+const newMovie = postMovie({
+    id: 2,
+    title: "The Matrix",
+    rating: 5,
+    summary: "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."
+});
+console.log(await newMovie);
 })();
