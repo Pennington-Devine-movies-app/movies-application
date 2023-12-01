@@ -1,3 +1,7 @@
+
+
+
+
 const getMovies = async () => {
     const url = 'http://localhost:3000/movies';
     const options = {
@@ -84,4 +88,6 @@ const newMovie = postMovie({
     summary: "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."
 });
 console.log(await newMovie);
+
+console.log(await getMovie(2));
 })();
