@@ -7,19 +7,14 @@
 
 </head>
 <body>
-<div class="pagewrapper">
-
-    <div class="container">
+<div class="page-wrapper">
+    <header class="container">
         <div class="row">
             <div class="col">
-                <header>
-                    <h1> Movies Application</h1>
-
-                </header>
-
+                <h1> Movies Application</h1>
             </div>
         </div>
-    </div>
+    </header>
     <section class="container search">
         <div class="row">
             <div class="col">
@@ -72,23 +67,38 @@
             </div>
         </div>
     </section>
-
-    <main class="container card-container ">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </main>
-
-
-
-    <footer class="container">
+    <main class="container">
         <div class="row">
             <div class="col col-sm-4 mb-3 mb-sm-0">
                 <div class="card mt-4">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <h5 class="card-title">Movie Title</h5>
-                            <button class="btn editBtn btn-link">...</button>
+<!--                            modal button-->
+                            <button type="button" class="editBtn btn-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                ...
+                            </button>
+
+<!--                            modal-->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Understood</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
                         <p class="movie-year">year</p>
                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipiscing elit litora, luctus sem rutrum metus odio nulla feugiat lacinia mi, euismod sapien donec nisl placerat sociosqu maecenas. Erat elementum non quisque ut primis conubia mattis dis, auctor integer neque tempor hendrerit justo.</p>
@@ -105,7 +115,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </main>
 </div>
 
 <script type="module" src="./js/main.js"></script>
