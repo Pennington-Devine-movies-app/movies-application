@@ -37,13 +37,14 @@ const deleteMovie = async (id) => {
     const data = await response.json();
     return data;
 }
-const postMovie = async ({ID, title, rating, summary, category}) => {
+const postMovie = async ({ID, title, rating, summary, category, year}) => {
     const newMovie = {
         ID,
         title,
         rating,
         summary,
         category,
+        year
     }
     const body = JSON.stringify(newMovie);
     const url = `http://localhost:3000/movies`;
@@ -94,7 +95,7 @@ const renderCard = ({title, rating, summary, id, year, category}) => {
     <!--                            modal-->
                                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog">
-                                        <div class="modal-content">
+                                        <div id="edit-movie" class="modal-content">
                                             <div class="modal-header">
                                                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -165,42 +166,31 @@ const updateCards = async (movies) => {
     }
     cardContainer.appendChild(cardFragment);
 }
-
-const addMovie = async ({title, rating, summary, id, year, category}) => {
-    const addForm =  document.querySelector('.modal-content')
-    addForm.addEventListener("submit", async (e) => {});
-    onsubmit = (e) => {
+const editMovie = async (id) => {
+    const editForm = document.querySelector('#edit-movie')
+    editForm.addEventListener("submit", async (e) => {});
+    onsubmit = async (e) => {
         const inputTitle = document.getElementById('#title').value;
         const inputSummary = document.getElementById("#summary").value;
-        const newMovie =   postMovie({inputTitle, inputSummary})
-         renderCard(newMovie)
+        const newMovie = patchMovie({inputTitle, inputSummary})
+        renderCard(newMovie)
+        await updateCards(await getMovies())
 
     }
-
-
-
 }
+
+
+
+
 
 //MAIN
 (async () => {
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     await updateCards(await getMovies())
-    window.addEventListener('load', () => {
-        document.querySelector('.loader').style.display="none";
-    })
+    // window.addEventListener('load', () => {
+    //     document.querySelector('.loader').style.display="none";
+    // })
     const movieRating = document.querySelector('#ratingSelect');
     const searchMovies = document.querySelector('#movie-search');
     searchMovies.addEventListener ('input', async (e) => {
@@ -213,29 +203,21 @@ const addMovie = async ({title, rating, summary, id, year, category}) => {
     });
 
 
+    const addBtn = document.querySelector('#addBtn');
+    addBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+         const newMovie = await ({
+             id: await getMovies().length + 1,
+             title: document.querySelector('#title').value,
+             rating: document.querySelector('#rating').value,
+             summary: document.querySelector('#summary').value,
+             // category: document.querySelector('#category').value,
+             year: document.querySelector('#year').value,
+         });
+         await postMovie(newMovie);
+         await updateCards(await getMovies());
+    });
 
 
 })();
