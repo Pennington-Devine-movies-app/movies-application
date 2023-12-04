@@ -38,6 +38,13 @@
       "summary": "dfad",
       "year": "asdf",
       "id": 5
+    },
+    {
+      "title": "my movie",
+      "rating": "10",
+      "summary": "some people learn coding and fail",
+      "year": "2023",
+      "id": 6
     }
   ]
 }

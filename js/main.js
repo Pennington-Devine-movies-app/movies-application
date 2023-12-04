@@ -88,24 +88,31 @@ const renderCard = ({title, rating, summary, id, year, category}) => {
                             <div class="d-flex justify-content-between">
                                 <h5 class="card-title">${title}</h5>
     <!--                            modal button-->
-                                <button type="button" class="btn editBtn btn-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <button type="button" class="btn editBtn btn-link" data-bs-toggle="modal" data-bs-target="#edit">
                                     ...
                                 </button>
     
     <!--                            modal-->
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div id="edit-movie" class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                                                <h5 class="modal-title" id="staticBackdropLabel">Edit Movie</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                ...
+                                                <div class="row">
+                                                    <input type="text" placeholder="${title}">    
+                                                    <input type="text" placeholder="${year}">
+                                                </div>
+                                                <div class="row">
+                                                    <input type="text" placeholder="${summary}">
+                                                    <input type="text" placeholder="${rating}">
+                                                    <input type="text" placeholder="${category}">
+                                                </div>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Understood</button>
+                                            <div class="modal-footer">    
+                                                 <button type="button" class="btn btn-primary">Submit Changes</button>
                                             </div>
                                         </div>
                                     </div>
@@ -206,7 +213,6 @@ const editMovie = async (id) => {
     const addBtn = document.querySelector('#addBtn');
     addBtn.addEventListener('click', async (e) => {
         e.preventDefault();
-
          const newMovie = await ({
              id: await getMovies().length + 1,
              title: document.querySelector('#title').value,
