@@ -129,13 +129,29 @@ const renderCard = ({title, rating, summary, id}) => {
             `;
     return movieCard;
 }
-
 const updateCards = async (movies) => {
     const cardContainer = document.querySelector('.card-container');
     cardContainer.innerHTML = '';
+    const movieCategory = document.querySelector('#filterBtn').value;
     const cardFragment = document.createDocumentFragment();
 
-    for (let movie of await movies){
+    let filteredMovies = movies;
+    filteredMovies = filteredMovies.filter((movie)=>{
+        if(!movieCategory){
+            return true;
+        }
+        return movie.title.toLowerCase() === movieCategory.toLowerCase();
+    });
+
+    const searchValue = document.querySelector('#movie-search').value;
+    filteredMovies = filteredMovies.filter((movie) => {
+        if(!searchValue){
+            return true;
+        }
+        return movie.title.toLowerCase().includes(searchValue.toLowerCase());
+    });
+
+    for (let movie of await filteredMovies){
         const movieCards = renderCard(movie);
         await cardFragment.appendChild(await movieCards);
     }
@@ -148,18 +164,24 @@ const updateCards = async (movies) => {
 
 //MAIN
 (async () => {
-    console.log(document.readyState)
-
+    await updateCards(await getMovies())
     window.addEventListener('load', () => {
         document.querySelector('.loader').style.display="none";
     })
 
+   const searchMovies = document.querySelector('#movie-search');
+    searchMovies.addEventListener ('input', async (e) => {
+        e.preventDefault();
+        await updateCards(await getMovies());
+    });
 
 
 
 
 
-    await updateCards(await getMovies())
+
+
+
 
 
 
