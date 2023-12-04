@@ -3,25 +3,33 @@
     {
       "id": 1,
       "title": "Shrek",
+      "year": 1995,
+      "category": "Comedy",
       "rating": 5,
       "summary": "Get out of my swamp!"
     },
     {
       "id": 2,
       "title": "Matrix",
-      "rating": 5,
+      "year": 1995,
+      "category": "Comedy",
+      "rating": 8,
       "summary": "\"The Matrix\" is a science fiction film written and directed by the Wachowskis, released in 1999. The story revolves around a computer hacker named Neo, played by Keanu Reeves, who discovers that the world he knows is an illusion created by intelligent machines that have enslaved humanity. Neo joins a group of rebels led by Morpheus (Laurence Fishburne) and Trinity (Carrie-Anne Moss) to challenge the oppressive rule of the machines. "
     },
     {
       "id": 3,
       "title": "Matrix",
-      "rating": 5,
+      "year": 1995,
+      "category": "Comedy",
+      "rating": 10,
       "summary": "Neo is the one!"
     },
     {
       "id": 4,
       "title": "Matrix",
-      "rating": 5,
+      "year": 1995,
+      "category": "Comedy",
+      "rating": 1,
       "summary": "Neo is the one!"
     }
   ]

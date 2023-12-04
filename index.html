@@ -20,8 +20,6 @@
             <div class="col">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id = "movie-search" placeholder="Search for movie" aria-label="Search for movie" aria-describedby="button-addon2">
-
-                    <button class="btn btn-outline-secondary" type="button" id="submit">Submit</button>
                 </div>
             </div>
             <div class="container filter">
@@ -52,17 +50,14 @@
                             <div>
                                 <button type="button" class="btn btn-success">Add+</button>
                             </div>
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Sort
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </div>
-
+                                <label for="ratingSelect">
+                                    <select id="ratingSelect" class="form-select-lg m-2">
+                                        <option selected>All Ratings</option>
+                                        <option value="bad">Ratings 1-4</option>
+                                        <option value="good">Ratings 5-7</option>
+                                        <option value="excellent">Ratings 8-10</option>
+                                    </select>
+                                </label>
                         </div>
                     </div>
                 </div>

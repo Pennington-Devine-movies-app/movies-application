@@ -1,7 +1,6 @@
-
-
-
-
+const getPercentage = (rating) => {
+    return rating * 10
+}
 const getMovies = async () => {
     const url = 'http://localhost:3000/movies';
     const options = {
@@ -76,8 +75,9 @@ const patchMovie = async (id) => {
     const data = await response.json();
     return data;
 }
-const renderCard = ({title, rating, summary, id}) => {
+const renderCard = ({title, rating, summary, id, year, category}) => {
     const movieCard = document.createElement('div');
+    const barWidth = getPercentage(rating)
     movieCard.classList.add('col' );
     movieCard.innerHTML = `
  
@@ -109,7 +109,7 @@ const renderCard = ({title, rating, summary, id}) => {
                                     </div>
                                 </div>
                             </div>
-                            <p class="movie-year">${id}</p>
+                            <p class="movie-year">${year}</p>
                             <div class="card-summary">
                             <p> ${summary}</p>
                             </div>
@@ -118,10 +118,10 @@ const renderCard = ({title, rating, summary, id}) => {
                                 <p>${rating}</p>
                             </div>
                             <div class="progress mb-3" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                <div class="progress-bar bg-success progress-bar-animated" style="width: 75%"></div>
+                                <div class="progress-bar bg-success progress-bar-animated" style="width: ${barWidth}%"></div>
                             </div>
-                            <button class="btn btn-secondary">Category</button>
-                            <button class="btn btn-secondary">Category</button>
+                            <button class="btn btn-secondary">${category}</button>
+                            <button class="btn btn-secondary">${category}</button>
                         </div>
                         
                     </div>
@@ -129,13 +129,36 @@ const renderCard = ({title, rating, summary, id}) => {
             `;
     return movieCard;
 }
-
 const updateCards = async (movies) => {
     const cardContainer = document.querySelector('.card-container');
     cardContainer.innerHTML = '';
     const cardFragment = document.createDocumentFragment();
 
-    for (let movie of await movies){
+    const movieRating = document.querySelector('#ratingSelect').value;
+    let filteredMovies = movies;
+    filteredMovies = filteredMovies.filter((movie) => {
+            if (!movieRating) {
+                return true;
+            } else if (movieRating === 'bad') {
+                return movie.rating <= 4;
+            } else if (movieRating === 'good') {
+                return movie.rating > 4 && movie.rating < 8;
+            } else if (movieRating === 'excellent') {
+                return movie.rating > 7;
+            } else {
+                return true;
+            }
+    });
+
+    const searchValue = document.querySelector('#movie-search').value;
+    filteredMovies = filteredMovies.filter((movie) => {
+        if(!searchValue){
+            return true;
+        }
+        return movie.title.toLowerCase().includes(searchValue.toLowerCase());
+    });
+
+    for (let movie of await filteredMovies){
         const movieCards = renderCard(movie);
         await cardFragment.appendChild(await movieCards);
     }
@@ -148,18 +171,30 @@ const updateCards = async (movies) => {
 
 //MAIN
 (async () => {
-    console.log(document.readyState)
-
+    await updateCards(await getMovies())
     window.addEventListener('load', () => {
         document.querySelector('.loader').style.display="none";
     })
+    const movieRating = document.querySelector('#ratingSelect');
+    const searchMovies = document.querySelector('#movie-search');
+    searchMovies.addEventListener ('input', async (e) => {
+        e.preventDefault();
+        await updateCards(await getMovies());
+    });
+    movieRating.addEventListener('change', async e=> {
+        e.preventDefault();
+      await updateCards(await getMovies());
+    });
 
 
 
 
 
 
-    await updateCards(await getMovies())
+
+
+
+
 
 
 
