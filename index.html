@@ -48,7 +48,55 @@
                                 </button>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-success">Add+</button>
+
+                                <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    Add+
+                                </button>
+
+                                <!--                            modal-->
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <form id="add-movie" class="modal-content form">
+                                            <div class="modal-header">
+                                                <label for="title">Movie Title: </label>
+                                                <input type="text" id="title" name="title">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div>
+                                                    <label for="year">Year: </label>
+                                                    <input type="text" id="year" name="year">
+                                                </div>
+                                                <div>
+                                                    <label for="summary">Summary: </label>
+                                                    <input type="text" id="summary" name="summary">
+                                                </div>
+                                                <div>
+                                                    <p> Select a Rating:</p>
+                                                    <div class="slidecontainer">
+                                                        <input type="range" min="1" max="10" value="0" class="slider" id="rating">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <p> Categories:</p>
+                                                    <label for="comedy">Comedy</label>
+                                                    <input type="checkbox" id="comedy" name="comedy">
+                                                    <label for="action">Action</label>
+                                                    <input type="checkbox" id="action" name="action">
+                                                    <label for="scifi">Sci-fi</label>
+                                                    <input type="checkbox" id="scifi" name="scifi">
+                                                    <label for="kids">Kids</label>
+                                                    <input type="checkbox" id="kids" name="kids">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button id="cancelBtn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                <button id="addBtn" type="submit" class="btn btn-primary " data-bs-dismiss="modal" aria-label="Close">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
                             </div>
                                 <label for="ratingSelect">
                                     <select id="ratingSelect" class="form-select-lg m-2">
