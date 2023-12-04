@@ -75,7 +75,7 @@ const patchMovie = async (id) => {
     const data = await response.json();
     return data;
 }
-const renderCard = ({title, rating, summary, id}) => {
+const renderCard = ({title, rating, summary, id, year, category}) => {
     const movieCard = document.createElement('div');
     const barWidth = getPercentage(rating)
     movieCard.classList.add('col' );
@@ -109,7 +109,7 @@ const renderCard = ({title, rating, summary, id}) => {
                                     </div>
                                 </div>
                             </div>
-                            <p class="movie-year">${id}</p>
+                            <p class="movie-year">${year}</p>
                             <div class="card-summary">
                             <p> ${summary}</p>
                             </div>
@@ -120,8 +120,8 @@ const renderCard = ({title, rating, summary, id}) => {
                             <div class="progress mb-3" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
                                 <div class="progress-bar bg-success progress-bar-animated" style="width: ${barWidth}%"></div>
                             </div>
-                            <button class="btn btn-secondary">Category</button>
-                            <button class="btn btn-secondary">Category</button>
+                            <button class="btn btn-secondary">${category}</button>
+                            <button class="btn btn-secondary">${category}</button>
                         </div>
                         
                     </div>
