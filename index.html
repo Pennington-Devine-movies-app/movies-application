@@ -19,7 +19,8 @@
         <div class="row">
             <div class="col">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search for movie" aria-label="Search for movie" aria-describedby="button-addon2">
+                    <input type="text" class="form-control" id = "movie-search" placeholder="Search for movie" aria-label="Search for movie" aria-describedby="button-addon2">
+
                     <button class="btn btn-outline-secondary" type="button" id="submit">Submit</button>
                 </div>
             </div>
@@ -61,6 +62,7 @@
                                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                                 </ul>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -68,51 +70,17 @@
         </div>
     </section>
     <main class="container">
-        <div class="row">
-            <div class="col col-sm-4 mb-3 mb-sm-0">
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                            <h5 class="card-title">Movie Title</h5>
-<!--                            modal button-->
-                            <button type="button" class="btn editBtn btn-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                ...
-                            </button>
+        <div class="loader-container" id="loader-container">
+            <button class="btn btn-primary loader" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                <span role="status">Loading...</span>
+            </button>
 
-<!--                            modal-->
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            ...
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Understood</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+        </div>
 
+        <div class="row d-flex">
+            <div class="col card-container d-flex gap-2 flex-wrap ">
 
-                        </div>
-                        <p class="movie-year">year</p>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipiscing elit litora, luctus sem rutrum metus odio nulla feugiat lacinia mi, euismod sapien donec nisl placerat sociosqu maecenas. Erat elementum non quisque ut primis conubia mattis dis, auctor integer neque tempor hendrerit justo.</p>
-                        <div class="d-flex justify-content-between">
-                            <p>Rating</p>
-                            <p>5/10</p>
-                        </div>
-                        <div class="progress mb-3" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar bg-success progress-bar-animated" style="width: 50%"></div>
-                        </div>
-                        <button class="btn btn-secondary">Category</button>
-                        <button class="btn btn-secondary">Category</button>
-                    </div>
-                </div>
             </div>
         </div>
     </main>

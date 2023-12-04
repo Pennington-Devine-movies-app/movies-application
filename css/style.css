@@ -3,6 +3,8 @@
 
 .card-container{
 
+
+
 }
 .editBtn {
     color: dimgrey;
@@ -17,5 +19,16 @@ p {
     padding: unset;
     color: grey;
     font-size: 14px;
+
+}
+
+.card{
+    width: 280px;
+}
+
+.card-summary{
+    height: 150px;
+    overflow: auto;
+
 
 }
