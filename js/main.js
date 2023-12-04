@@ -37,12 +37,13 @@ const deleteMovie = async (id) => {
     const data = await response.json();
     return data;
 }
-const postMovie = async ({ID, title, rating, summary}) => {
+const postMovie = async ({ID, title, rating, summary, category}) => {
     const newMovie = {
         ID,
         title,
         rating,
-        summary
+        summary,
+        category,
     }
     const body = JSON.stringify(newMovie);
     const url = `http://localhost:3000/movies`;
@@ -158,12 +159,37 @@ const updateCards = async (movies) => {
     cardContainer.appendChild(cardFragment);
 }
 
+const addMovie = async ({title, rating, summary, id, year, category}) => {
+    const addForm =  document.querySelector('.modal-content')
+    addForm.addEventListener("submit", async (e) => {});
+    onsubmit = (e) => {
+        const inputTitle = document.getElementById('#title').value;
+        const inputSummary = document.getElementById("#summary").value;
+        const newMovie =   postMovie({inputTitle, inputSummary})
+         renderCard(newMovie)
+
+    }
 
 
 
+}
 
 //MAIN
 (async () => {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     await updateCards(await getMovies())
     window.addEventListener('load', () => {
         document.querySelector('.loader').style.display="none";
@@ -174,6 +200,10 @@ const updateCards = async (movies) => {
         e.preventDefault();
         await updateCards(await getMovies());
     });
+
+
+
+
 
 
 
