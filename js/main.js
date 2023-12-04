@@ -1,7 +1,6 @@
-
-
-
-
+const getPercentage = (rating) => {
+    return rating * 10
+}
 const getMovies = async () => {
     const url = 'http://localhost:3000/movies';
     const options = {
@@ -78,6 +77,7 @@ const patchMovie = async (id) => {
 }
 const renderCard = ({title, rating, summary, id}) => {
     const movieCard = document.createElement('div');
+    const barWidth = getPercentage(rating)
     movieCard.classList.add('col' );
     movieCard.innerHTML = `
  
@@ -118,7 +118,7 @@ const renderCard = ({title, rating, summary, id}) => {
                                 <p>${rating}</p>
                             </div>
                             <div class="progress mb-3" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                <div class="progress-bar bg-success progress-bar-animated" style="width: 75%"></div>
+                                <div class="progress-bar bg-success progress-bar-animated" style="width: ${barWidth}%"></div>
                             </div>
                             <button class="btn btn-secondary">Category</button>
                             <button class="btn btn-secondary">Category</button>
