@@ -88,7 +88,7 @@ const renderCard = ({title, rating, summary, id, year, category}) => {
                             <div class="d-flex justify-content-between">
                                 <h5 class="card-title">${title}</h5>
     <!--                            modal button-->
-                                <button type="button" class="btn btn-danger btn-delete" id="btn-delete">Delete</button>
+                                <button type="button" class="btn btn-danger btn-delete" id="btn-delete" value=${id}>Delete</button>
 
                                 <button type="button" class="btn editBtn btn-link" data-bs-toggle="modal" data-bs-target="#edit">
                                     ...
@@ -138,6 +138,14 @@ const renderCard = ({title, rating, summary, id, year, category}) => {
                     </div>
                     
             `;
+    const deleteBtn = movieCard.querySelector('.btn-delete')
+     deleteBtn.addEventListener("click", async (e) => {
+         await deleteMovie(id)
+
+         await updateCards(await getMovies())
+     });
+
+
     return movieCard;
 }
 const updateCards = async (movies) => {
@@ -188,29 +196,11 @@ const editMovie = async (id) => {
     }
 }
 
-// const deleteCard = async (id) => {
-//     const deleteBtn = document.querySelector('#btn-delete')
-//     deleteBtn.addEventListener("click", async (e) => {});
-//     onclick = async (e) => {
-//         await
-//     }
-// }
-
-
-
-
-
-
-
 //MAIN
 (async () => {
     window.addEventListener('load', () => {
         document.querySelector('.loader').style.display="none";
     })
-
-
-    await updateCards(await getMovies())
-
     const movieRating = document.querySelector('#ratingSelect');
     const searchMovies = document.querySelector('#movie-search');
     searchMovies.addEventListener ('input', async (e) => {
@@ -221,8 +211,6 @@ const editMovie = async (id) => {
         e.preventDefault();
       await updateCards(await getMovies());
     });
-
-
     const addBtn = document.querySelector('#addBtn');
     addBtn.addEventListener('click', async (e) => {
         e.preventDefault();
@@ -237,6 +225,16 @@ const editMovie = async (id) => {
          await postMovie(newMovie);
          await updateCards(await getMovies());
     });
+
+
+
+
+    await updateCards(await getMovies())
+
+
+
+
+
 
 
 
