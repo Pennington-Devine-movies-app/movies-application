@@ -78,7 +78,7 @@ const renderCard = ({title, rating, summary, id, year, category}) => {
     movieCard.classList.add('col' );
     movieCard.innerHTML = `
  
-        <div class="card mt-4">
+        <div class="card mt-4 slide-right">
                         <div class="card-body">
                             <div class="d-flex justify-content-between justify-content-center align-items-center">
                                 <h5 class="card-title">${title}</h5>
@@ -197,7 +197,7 @@ const updateCards = async (movies) => {
     setTimeout(async () => {
         document.querySelector('.loader').style.display = "none";
         await updateCards(await getMovies())
-    }, 2000);
+    }, 3000);
     const movieRating = document.querySelector('#ratingSelect');
     const searchMovies = document.querySelector('#movie-search');
     searchMovies.addEventListener ('input', async (e) => {
