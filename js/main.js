@@ -88,24 +88,33 @@ const renderCard = ({title, rating, summary, id, year, category}) => {
                             <div class="d-flex justify-content-between">
                                 <h5 class="card-title">${title}</h5>
     <!--                            modal button-->
-                                <button type="button" class="btn editBtn btn-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <button type="button" class="btn btn-danger btn-delete" id="btn-delete" value=${id}>Delete</button>
+
+                                <button type="button" class="btn editBtn btn-link" data-bs-toggle="modal" data-bs-target="#edit">
                                     ...
                                 </button>
     
     <!--                            modal-->
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div id="edit-movie" class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                                                <h5 class="modal-title" id="staticBackdropLabel">Edit Movie</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                ...
+                                                <div class="row">
+                                                    <input type="text" placeholder="${title}">    
+                                                    <input type="text" placeholder="${year}">
+                                                </div>
+                                                <div class="row">
+                                                    <input type="text" placeholder="${summary}">
+                                                    <input type="text" placeholder="${rating}">
+                                                    <input type="text" placeholder="${category}">
+                                                </div>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Understood</button>
+                                            <div class="modal-footer">    
+                                                 <button type="button" class="btn btn-primary edit-submit">Submit Changes</button>
                                             </div>
                                         </div>
                                     </div>
@@ -123,12 +132,20 @@ const renderCard = ({title, rating, summary, id, year, category}) => {
                                 <div class="progress-bar bg-success progress-bar-animated" style="width: ${barWidth}%"></div>
                             </div>
                             <button class="btn btn-secondary">${category}</button>
-                            <button class="btn btn-secondary">${category}</button>
+                            
                         </div>
                         
                     </div>
                     
             `;
+    const deleteBtn = movieCard.querySelector('.btn-delete')
+     deleteBtn.addEventListener("click", async (e) => {
+         await deleteMovie(id)
+
+         await updateCards(await getMovies())
+     });
+
+
     return movieCard;
 }
 const updateCards = async (movies) => {
@@ -167,8 +184,8 @@ const updateCards = async (movies) => {
     cardContainer.appendChild(cardFragment);
 }
 const editMovie = async (id) => {
-    const editForm = document.querySelector('#edit-movie')
-    editForm.addEventListener("submit", async (e) => {});
+    const editButton = document.querySelector('#edit-submit')
+    editButton.addEventListener("submit", async (e) => {});
     onsubmit = async (e) => {
         const inputTitle = document.getElementById('#title').value;
         const inputSummary = document.getElementById("#summary").value;
@@ -179,18 +196,11 @@ const editMovie = async (id) => {
     }
 }
 
-
-
-
-
 //MAIN
 (async () => {
-
-
-    await updateCards(await getMovies())
-    // window.addEventListener('load', () => {
-    //     document.querySelector('.loader').style.display="none";
-    // })
+    window.addEventListener('load', () => {
+        document.querySelector('.loader').style.display="none";
+    })
     const movieRating = document.querySelector('#ratingSelect');
     const searchMovies = document.querySelector('#movie-search');
     searchMovies.addEventListener ('input', async (e) => {
@@ -201,23 +211,32 @@ const editMovie = async (id) => {
         e.preventDefault();
       await updateCards(await getMovies());
     });
-
-
     const addBtn = document.querySelector('#addBtn');
     addBtn.addEventListener('click', async (e) => {
         e.preventDefault();
-
          const newMovie = await ({
              id: await getMovies().length + 1,
              title: document.querySelector('#title').value,
              rating: document.querySelector('#rating').value,
              summary: document.querySelector('#summary').value,
-             // category: document.querySelector('#category').value,
+             category: document.querySelector('#category').value,
              year: document.querySelector('#year').value,
          });
          await postMovie(newMovie);
          await updateCards(await getMovies());
     });
+
+
+
+
+    await updateCards(await getMovies())
+
+
+
+
+
+
+
 
 
 })();

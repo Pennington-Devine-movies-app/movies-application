@@ -27,34 +27,14 @@
                     <h2>filter options</h2>
                     <div class="col">
                         <div class="d-flex filter-btns gap-2">
-                            <div>
-                                <button type="button" class="btn btn-primary">
-                                    All <span class="badge text-bg-secondary">4</span>
-                                </button>
-                            </div>
-                            <div>
-                                <button type="button" class="btn btn-primary">
-                                 Action <span class="badge text-bg-secondary">4</span>
-                                </button>
-                            </div>
-                            <div>
-                                <button type="button" class="btn btn-primary">
-                                 Family <span class="badge text-bg-secondary">4</span>
-                                </button>
-                            </div>
-                            <div>
-                                <button type="button" class="btn btn-primary">
-                                    Crime <span class="badge text-bg-secondary">4</span>
-                                </button>
-                            </div>
-                            <div>
+
 
                                 <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                     Add+
                                 </button>
 
                                 <!--                            modal-->
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
                                     <div class="modal-dialog">
                                         <form id="add-movie" class="modal-content form">
                                             <div class="modal-header">
@@ -79,20 +59,16 @@
                                                 </div>
                                                 <div>
                                                     <p> Categories:</p>
-                                                    <label for="comedy">Comedy</label>
-                                                    <input type="checkbox" id="comedy" name="comedy">
-                                                    <label for="action">Action</label>
-                                                    <input type="checkbox" id="action" name="action">
-                                                    <label for="scifi">Sci-fi</label>
-                                                    <input type="checkbox" id="scifi" name="scifi">
-                                                    <label for="kids">Kids</label>
-                                                    <input type="checkbox" id="kids" name="kids">
+                                                    <label for="category">Category: </label>
+                                                    <input type="text" id="category" name="category">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button id="cancelBtn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                                 <button id="addBtn" type="submit" class="btn btn-primary " data-bs-dismiss="modal" aria-label="Close">Submit</button>
                                             </div>
+                                            <input type="reset" value="Reset">
+
                                         </form>
                                     </div>
                                 </div>
