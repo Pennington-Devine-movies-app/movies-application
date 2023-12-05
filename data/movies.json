@@ -1,14 +1,6 @@
 {
   "movies": [
     {
-      "title": "The Matrix",
-      "rating": "7",
-      "summary": "asdfd",
-      "category": "action",
-      "year": "2000",
-      "id": 1
-    },
-    {
       "title": "Antz",
       "rating": "6",
       "summary": "fdfdf",
@@ -33,11 +25,11 @@
       "id": 4
     },
     {
-      "title": "its a new one",
-      "rating": "7",
-      "summary": "asdf",
-      "category": "action",
-      "year": "40000",
+      "title": "",
+      "rating": "1",
+      "summary": "",
+      "category": "",
+      "year": "",
       "id": 5
     }
   ]
