@@ -59,19 +59,14 @@ const postMovie = async ({ID, title, rating, summary, category, year}) => {
     const data = await response.json();
     return data;
 }
-const patchMovie = async (id) => {
-    const newMovie = {
-        ...movie,
-    };
-    const body = JSON.stringify(newMovie);
-
-    const url = `http://localhost:3000/movies/${id}`;
+const patchMovie = async (movie) => {
+    const url = `http://localhost:3000/movies/${movie.id}`;
     const options = {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
         },
-        body: body,
+        body: JSON.stringify(movie),
     };
     const response = await fetch(url, options);
     const data = await response.json();
@@ -85,38 +80,38 @@ const renderCard = ({title, rating, summary, id, year, category}) => {
  
         <div class="card mt-4">
                         <div class="card-body">
-                            <div class="d-flex justify-content-between">
+                            <div class="d-flex justify-content-between justify-content-center align-items-center">
                                 <h5 class="card-title">${title}</h5>
     <!--                            modal button-->
-                                <button type="button" class="btn btn-danger btn-delete" id="btn-delete" value=${id}>Delete</button>
+                                <button type="button" class="btn btn-danger btn-delete" id="btn-delete" value=${id}>-</button>
 
-                                <button type="button" class="btn editBtn btn-link" data-bs-toggle="modal" data-bs-target="#edit">
+                                <button type="button" class="btn editBtn btn-link" data-bs-toggle="modal" data-bs-target="#edit-${id}">
                                     ...
                                 </button>
     
     <!--                            modal-->
-                                <div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal fade" id="edit-${id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-${id}" aria-hidden="true">
                                     <div class="modal-dialog">
-                                        <div id="edit-movie" class="modal-content">
+                                        <form id="edit-movie-${id}" class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Edit Movie</h5>
+                                                <h5 class="modal-title" id="staticBackdropLabel-${id}">Edit Movie</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="row">
-                                                    <input type="text" placeholder="${title}">    
-                                                    <input type="text" placeholder="${year}">
+                                                    <input name="title" type="text" placeholder="${title}" value="${title}">    
+                                                    <input name="year" type="text" placeholder="${year}" value="${year}">
                                                 </div>
                                                 <div class="row">
-                                                    <input type="text" placeholder="${summary}">
-                                                    <input type="text" placeholder="${rating}">
-                                                    <input type="text" placeholder="${category}">
+                                                    <input name="summary" type="text" placeholder="${summary}" value="${summary}">
+                                                    <input name="rating" type="text" placeholder="${rating}" value="${rating}">
+                                                    <input name="category" type="text" placeholder="${category}" value="${category}">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">    
-                                                 <button type="button" class="btn btn-primary edit-submit">Submit Changes</button>
+                                                 <button class="btn btn-primary edit-submit" data-bs-dismiss="modal">Submit Changes</button>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -141,11 +136,24 @@ const renderCard = ({title, rating, summary, id, year, category}) => {
     const deleteBtn = movieCard.querySelector('.btn-delete')
      deleteBtn.addEventListener("click", async (e) => {
          await deleteMovie(id)
-
          await updateCards(await getMovies())
      });
 
-
+    const editForm = movieCard.querySelector('form');
+    editForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(editForm);
+        const newMovie = {
+            id,
+            title: formData.get('title'),
+            year: formData.get('year'),
+            summary: formData.get('summary'),
+            rating: formData.get('rating'),
+            category: formData.get('category'),
+        }
+        await patchMovie(newMovie);
+        await updateCards(await getMovies());
+    });
     return movieCard;
 }
 const updateCards = async (movies) => {
@@ -183,18 +191,6 @@ const updateCards = async (movies) => {
     }
     cardContainer.appendChild(cardFragment);
 }
-const editMovie = async (id) => {
-    const editButton = document.querySelector('#edit-submit')
-    editButton.addEventListener("submit", async (e) => {});
-    onsubmit = async (e) => {
-        const inputTitle = document.getElementById('#title').value;
-        const inputSummary = document.getElementById("#summary").value;
-        const newMovie = patchMovie({inputTitle, inputSummary})
-        renderCard(newMovie)
-        await updateCards(await getMovies())
-
-    }
-}
 
 //MAIN
 (async () => {
@@ -226,17 +222,5 @@ const editMovie = async (id) => {
          await updateCards(await getMovies());
     });
 
-
-
-
     await updateCards(await getMovies())
-
-
-
-
-
-
-
-
-
 })();
