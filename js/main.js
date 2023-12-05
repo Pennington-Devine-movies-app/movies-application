@@ -88,6 +88,8 @@ const renderCard = ({title, rating, summary, id, year, category}) => {
                             <div class="d-flex justify-content-between">
                                 <h5 class="card-title">${title}</h5>
     <!--                            modal button-->
+                                <button type="button" class="btn btn-danger btn-delete" id="btn-delete">Delete</button>
+
                                 <button type="button" class="btn editBtn btn-link" data-bs-toggle="modal" data-bs-target="#edit">
                                     ...
                                 </button>
@@ -112,7 +114,7 @@ const renderCard = ({title, rating, summary, id, year, category}) => {
                                                 </div>
                                             </div>
                                             <div class="modal-footer">    
-                                                 <button type="button" class="btn btn-primary">Submit Changes</button>
+                                                 <button type="button" class="btn btn-primary edit-submit">Submit Changes</button>
                                             </div>
                                         </div>
                                     </div>
@@ -130,7 +132,7 @@ const renderCard = ({title, rating, summary, id, year, category}) => {
                                 <div class="progress-bar bg-success progress-bar-animated" style="width: ${barWidth}%"></div>
                             </div>
                             <button class="btn btn-secondary">${category}</button>
-                            <button class="btn btn-secondary">${category}</button>
+                            
                         </div>
                         
                     </div>
@@ -174,8 +176,8 @@ const updateCards = async (movies) => {
     cardContainer.appendChild(cardFragment);
 }
 const editMovie = async (id) => {
-    const editForm = document.querySelector('#edit-movie')
-    editForm.addEventListener("submit", async (e) => {});
+    const editButton = document.querySelector('#edit-submit')
+    editButton.addEventListener("submit", async (e) => {});
     onsubmit = async (e) => {
         const inputTitle = document.getElementById('#title').value;
         const inputSummary = document.getElementById("#summary").value;
@@ -186,18 +188,29 @@ const editMovie = async (id) => {
     }
 }
 
+// const deleteCard = async (id) => {
+//     const deleteBtn = document.querySelector('#btn-delete')
+//     deleteBtn.addEventListener("click", async (e) => {});
+//     onclick = async (e) => {
+//         await
+//     }
+// }
+
+
+
 
 
 
 
 //MAIN
 (async () => {
+    window.addEventListener('load', () => {
+        document.querySelector('.loader').style.display="none";
+    })
 
 
     await updateCards(await getMovies())
-    // window.addEventListener('load', () => {
-    //     document.querySelector('.loader').style.display="none";
-    // })
+
     const movieRating = document.querySelector('#ratingSelect');
     const searchMovies = document.querySelector('#movie-search');
     searchMovies.addEventListener ('input', async (e) => {
@@ -218,12 +231,14 @@ const editMovie = async (id) => {
              title: document.querySelector('#title').value,
              rating: document.querySelector('#rating').value,
              summary: document.querySelector('#summary').value,
-             // category: document.querySelector('#category').value,
+             category: document.querySelector('#category').value,
              year: document.querySelector('#year').value,
          });
          await postMovie(newMovie);
          await updateCards(await getMovies());
     });
+
+
 
 
 })();
