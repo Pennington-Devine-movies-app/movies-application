@@ -29,7 +29,8 @@ p {
 }
 
 .card{
-    width: 280px;
+    max-height: 500px;
+    width: 290px;
     border: black 2px ridge;
     border-radius: 10px;
     margin: 10px;
@@ -46,9 +47,11 @@ p {
 }
 
 .card-title{
+    height: 100px;
     font-size: 20px;
     font-weight: bold;
     color: black;
+    overflow: auto;
 }
 body {
     background-color: lightgrey;
