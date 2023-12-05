@@ -60,7 +60,6 @@ const postMovie = async ({ID, title, rating, summary, category, year}) => {
     return data;
 }
 const patchMovie = async (movie) => {
-    console.log("patchMovie called with movie => ", movie);
     const url = `http://localhost:3000/movies/${movie.id}`;
     const options = {
         method: "PATCH",
@@ -81,10 +80,10 @@ const renderCard = ({title, rating, summary, id, year, category}) => {
  
         <div class="card mt-4">
                         <div class="card-body">
-                            <div class="d-flex justify-content-between">
+                            <div class="d-flex justify-content-between justify-content-center align-items-center">
                                 <h5 class="card-title">${title}</h5>
     <!--                            modal button-->
-                                <button type="button" class="btn btn-danger btn-delete" id="btn-delete" value=${id}>Delete</button>
+                                <button type="button" class="btn btn-danger btn-delete" id="btn-delete" value=${id}>-</button>
 
                                 <button type="button" class="btn editBtn btn-link" data-bs-toggle="modal" data-bs-target="#edit-${id}">
                                     ...
@@ -137,14 +136,12 @@ const renderCard = ({title, rating, summary, id, year, category}) => {
     const deleteBtn = movieCard.querySelector('.btn-delete')
      deleteBtn.addEventListener("click", async (e) => {
          await deleteMovie(id)
-
          await updateCards(await getMovies())
      });
 
     const editForm = movieCard.querySelector('form');
     editForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        console.log("Submit event fired");
         const formData = new FormData(editForm);
         const newMovie = {
             id,
@@ -157,9 +154,6 @@ const renderCard = ({title, rating, summary, id, year, category}) => {
         await patchMovie(newMovie);
         await updateCards(await getMovies());
     });
-
-
-
     return movieCard;
 }
 const updateCards = async (movies) => {
