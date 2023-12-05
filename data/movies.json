@@ -45,6 +45,37 @@
       "summary": "some people learn coding and fail",
       "year": "2023",
       "id": 6
+    },
+    {
+      "title": "here is a new movie",
+      "rating": "9",
+      "summary": "its about some things",
+      "year": "2023",
+      "id": 7
+    },
+    {
+      "title": "a new new movie",
+      "rating": "5",
+      "summary": "its about some stuff",
+      "category": "action",
+      "year": "2023",
+      "id": 8
+    },
+    {
+      "title": "Starwars",
+      "rating": "10",
+      "summary": "its about a war in the stars",
+      "category": "scifi",
+      "year": "1980",
+      "id": 9
+    },
+    {
+      "title": "nathan",
+      "rating": "10",
+      "summary": "heres some stuff",
+      "category": "action",
+      "year": "2023",
+      "id": 10
     }
   ]
 }
