@@ -1,157 +1,157 @@
 {
   "movies": [
-      {
-        "title": "Blade Runner",
-        "rating": 8,
-        "summary": "A dystopian future where synthetic humans known as replicants are hunted by special police operatives.",
-        "category": "Science Fiction",
-        "year": "1982",
-        "id": 4
-      },
-      {
-        "title": "The Matrix",
-        "rating": 9,
-        "summary": "A computer hacker learns about the true nature of his reality and leads a rebellion against the machines.",
-        "category": "Science Fiction",
-        "year": "1999",
-        "id": 5
-      },
-      {
-        "title": "Interstellar",
-        "rating": 9,
-        "summary": "A group of astronauts embarks on a journey through a wormhole in search of a new habitable planet for humanity.",
-        "category": "Space",
-        "year": "2014",
-        "id": 6
-      },
-      {
-        "title": "Inception",
-        "rating": 9,
-        "summary": "A skilled thief enters the dreams of others to steal their deepest secrets.",
-        "category": "Science Fiction",
-        "year": "2010",
-        "id": 7
-      },
-      {
-        "title": "Avatar",
-        "rating": 8,
-        "summary": "A paraplegic marine is dispatched to the moon Pandora on a unique mission.",
-        "category": "Science Fiction",
-        "year": "2009",
-        "id": 8
-      },
-      {
-        "title": "E.T. the Extra-Terrestrial",
-        "rating": 8,
-        "summary": "A young boy befriends an alien stranded on Earth and helps him return home.",
-        "category": "Family",
-        "year": "1982",
-        "id": 9
-      },
-      {
-        "title": "The Fifth Element",
-        "rating": 8,
-        "summary": "In a futuristic world, a cab driver and a mysterious woman must prevent the end of the world.",
-        "category": "Science Fiction",
-        "year": "1997",
-        "id": 10
-      },
-      {
-        "title": "Back to the Future",
-        "rating": 9,
-        "summary": "A teenager travels back in time with the help of a mad scientist's DeLorean.",
-        "category": "Adventure",
-        "year": "1985",
-        "id": 11
-      },
-      {
-        "title": "Jurassic Park",
-        "rating": 8,
-        "summary": "A theme park with genetically engineered dinosaurs goes awry, putting visitors in danger.",
-        "category": "Adventure",
-        "year": "1993",
-        "id": 12
-      },
-      {
-        "title": "Forrest Gump",
-        "rating": 10,
-        "summary": "A man with a low IQ witnesses and influences various historical events in the 20th century USA.",
-        "category": "Drama",
-        "year": "1994",
-        "id": 13
-      },
-      {
-        "title": "The Dark Knight",
-        "rating": 9,
-        "summary": "Batman faces a new enemy, The Joker, who seeks chaos in Gotham City.",
-        "category": "Action",
-        "year": "2008",
-        "id": 14
-      },
-      {
-        "title": "The Shawshank Redemption",
-        "rating": 10,
-        "summary": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-        "category": "Drama",
-        "year": "1994",
-        "id": 15
-      },
-      {
-        "title": "The Godfather",
-        "rating": 10,
-        "summary": "The aging patriarch of an organized crime dynasty transfers control to his reluctant son.",
-        "category": "Crime",
-        "year": "1972",
-        "id": 16
-      },
-      {
-        "title": "The Lord of the Rings: The Fellowship of the Ring",
-        "rating": 9,
-        "summary": "A young hobbit, Frodo, is tasked with destroying an evil ring to save Middle-earth.",
-        "category": "Fantasy",
-        "year": "2001",
-        "id": 17
-      },
-      {
-        "title": "Pulp Fiction",
-        "rating": 9,
-        "summary": "The lives of two mob hitmen, a boxer, a gangster and his wife intertwine in four tales of violence and redemption.",
-        "category": "Crime",
-        "year": "1994",
-        "id": 18
-      },
-      {
-        "title": "Inglourious Basterds",
-        "rating": 8,
-        "summary": "In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders is hatched.",
-        "category": "War",
-        "year": "2009",
-        "id": 19
-      },
-      {
-        "title": "The Grand Budapest Hotel",
-        "rating": 8,
-        "summary": "The adventures of Gustave H, a legendary concierge at a famous hotel, and Zero Moustafa, the lobby boy.",
-        "category": "Comedy",
-        "year": "2014",
-        "id": 20
-      },
-      {
-        "title": "The Silence of the Lambs",
-        "rating": 9,
-        "summary": "A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer.",
-        "category": "Thriller",
-        "year": "1991",
-        "id": 21
-      },
-      {
-        "title": "Schindler's List",
-        "rating": 10,
-        "summary": "In German-occupied Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
-        "category": "Biography",
-        "year": "1993",
-        "id": 22
-      },
+    {
+      "title": "Blade Runner",
+      "rating": 8,
+      "summary": "A dystopian future where synthetic humans known as replicants are hunted by special police operatives.",
+      "category": "Science Fiction",
+      "year": "1982",
+      "id": 4
+    },
+    {
+      "title": "The Matrix",
+      "rating": 9,
+      "summary": "A computer hacker learns about the true nature of his reality and leads a rebellion against the machines.",
+      "category": "Science Fiction",
+      "year": "1999",
+      "id": 5
+    },
+    {
+      "title": "Interstellar",
+      "rating": 9,
+      "summary": "A group of astronauts embarks on a journey through a wormhole in search of a new habitable planet for humanity.",
+      "category": "Space",
+      "year": "2014",
+      "id": 6
+    },
+    {
+      "title": "Inception",
+      "rating": 9,
+      "summary": "A skilled thief enters the dreams of others to steal their deepest secrets.",
+      "category": "Science Fiction",
+      "year": "2010",
+      "id": 7
+    },
+    {
+      "title": "Avatar",
+      "rating": 8,
+      "summary": "A paraplegic marine is dispatched to the moon Pandora on a unique mission.",
+      "category": "Science Fiction",
+      "year": "2009",
+      "id": 8
+    },
+    {
+      "title": "E.T. the Extra-Terrestrial",
+      "rating": 8,
+      "summary": "A young boy befriends an alien stranded on Earth and helps him return home.",
+      "category": "Family",
+      "year": "1982",
+      "id": 9
+    },
+    {
+      "title": "The Fifth Element",
+      "rating": 8,
+      "summary": "In a futuristic world, a cab driver and a mysterious woman must prevent the end of the world.",
+      "category": "Science Fiction",
+      "year": "1997",
+      "id": 10
+    },
+    {
+      "title": "Back to the Future",
+      "rating": 9,
+      "summary": "A teenager travels back in time with the help of a mad scientist's DeLorean.",
+      "category": "Adventure",
+      "year": "1985",
+      "id": 11
+    },
+    {
+      "title": "Jurassic Park",
+      "rating": 8,
+      "summary": "A theme park with genetically engineered dinosaurs goes awry, putting visitors in danger.",
+      "category": "Adventure",
+      "year": "1993",
+      "id": 12
+    },
+    {
+      "title": "Forrest Gump",
+      "rating": 10,
+      "summary": "A man with a low IQ witnesses and influences various historical events in the 20th century USA.",
+      "category": "Drama",
+      "year": "1994",
+      "id": 13
+    },
+    {
+      "title": "The Dark Knight",
+      "rating": 9,
+      "summary": "Batman faces a new enemy, The Joker, who seeks chaos in Gotham City.",
+      "category": "Action",
+      "year": "2008",
+      "id": 14
+    },
+    {
+      "title": "The Shawshank Redemption",
+      "rating": 10,
+      "summary": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+      "category": "Drama",
+      "year": "1994",
+      "id": 15
+    },
+    {
+      "title": "The Godfather",
+      "rating": 10,
+      "summary": "The aging patriarch of an organized crime dynasty transfers control to his reluctant son.",
+      "category": "Crime",
+      "year": "1972",
+      "id": 16
+    },
+    {
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "rating": 9,
+      "summary": "A young hobbit, Frodo, is tasked with destroying an evil ring to save Middle-earth.",
+      "category": "Fantasy",
+      "year": "2001",
+      "id": 17
+    },
+    {
+      "title": "Pulp Fiction",
+      "rating": 9,
+      "summary": "The lives of two mob hitmen, a boxer, a gangster and his wife intertwine in four tales of violence and redemption.",
+      "category": "Crime",
+      "year": "1994",
+      "id": 18
+    },
+    {
+      "title": "Inglourious Basterds",
+      "rating": 8,
+      "summary": "In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders is hatched.",
+      "category": "War",
+      "year": "2009",
+      "id": 19
+    },
+    {
+      "title": "The Grand Budapest Hotel",
+      "rating": 8,
+      "summary": "The adventures of Gustave H, a legendary concierge at a famous hotel, and Zero Moustafa, the lobby boy.",
+      "category": "Comedy",
+      "year": "2014",
+      "id": 20
+    },
+    {
+      "title": "The Silence of the Lambs",
+      "rating": 9,
+      "summary": "A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer.",
+      "category": "Thriller",
+      "year": "1991",
+      "id": 21
+    },
+    {
+      "title": "Schindler's List",
+      "rating": 10,
+      "summary": "In German-occupied Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+      "category": "Biography",
+      "year": "1993",
+      "id": 22
+    },
     {
       "title": "The Room",
       "rating": 2,
@@ -271,6 +271,14 @@
       "category": "Adventure",
       "year": "2012",
       "id": 37
+    },
+    {
+      "title": "A Bugs Life",
+      "rating": "9",
+      "summary": "A story about a fight between ants and grasshoppers",
+      "category": "Family",
+      "year": "1997",
+      "id": 38
     }
   ]
 }

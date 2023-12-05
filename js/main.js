@@ -194,9 +194,10 @@ const updateCards = async (movies) => {
 
 //MAIN
 (async () => {
-    window.addEventListener('load', () => {
-        document.querySelector('.loader').style.display="none";
-    })
+    setTimeout(async () => {
+        document.querySelector('.loader').style.display = "none";
+        await updateCards(await getMovies())
+    }, 2000);
     const movieRating = document.querySelector('#ratingSelect');
     const searchMovies = document.querySelector('#movie-search');
     searchMovies.addEventListener ('input', async (e) => {
@@ -222,5 +223,4 @@ const updateCards = async (movies) => {
          await updateCards(await getMovies());
     });
 
-    await updateCards(await getMovies())
 })();
