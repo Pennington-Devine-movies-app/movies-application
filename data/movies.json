@@ -1,16 +1,8 @@
 {
   "movies": [
     {
-      "title": "Antz",
-      "rating": "6",
-      "summary": "fdfdf",
-      "category": "kids",
-      "year": "2000",
-      "id": 2
-    },
-    {
       "title": "Starwars",
-      "rating": "10",
+      "rating": "9",
       "summary": "stuff",
       "category": "space",
       "year": "1980",
@@ -31,6 +23,22 @@
       "category": "action",
       "year": "40000",
       "id": 5
+    },
+    {
+      "title": "jshdf",
+      "rating": "6",
+      "summary": "sdv",
+      "category": "sdv",
+      "year": "sdc",
+      "id": 6
+    },
+    {
+      "title": "sdf",
+      "rating": "5",
+      "summary": "sdf",
+      "category": "sdf",
+      "year": "sdf",
+      "id": 7
     }
   ]
 }
